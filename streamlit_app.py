@@ -78,6 +78,6 @@ col1, col2 = st.columns(2)
 my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 if my_upload is not None:
-    upload(upload=my_upload)
+    analyseItem(upload=my_upload)
 else:
-    upload("./1.jpeg")
+    analyseItem("./1.jpeg")
