@@ -54,9 +54,9 @@ def analyseItem(upload):
     st.write("#### :camera: Sample")
     st.image(image)
    
-    #img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
-    #img_array = tf.keras.preprocessing.image.img_to_array(img)
-    #img_array = tf.expand_dims(img_array, 0)
+    img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
+    img_array = tf.keras.preprocessing.image.img_to_array(img)
+    img_array = tf.expand_dims(img_array, 0)
 
     #modelPrediction = selectModel.predict(img_array)
     
