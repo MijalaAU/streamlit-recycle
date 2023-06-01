@@ -45,7 +45,7 @@ def download(url: str, dest_folder: str):
 
 #download("https://storage.googleapis.com/lambm-deakin-sit744-23t1-a2/recycleModel.h5", dest_folder="~")
 # Model Parameters
-#selectModel = tf.keras.models.load_model('./recycleModel.h5')
+selectModel = tf.keras.models.load_model('./recycle-Task-2-2.h5')
 
 def analyseItem(upload):
     image = Image.open(upload)
@@ -56,17 +56,16 @@ def analyseItem(upload):
     img_array = tf.keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
 
-    #modelPrediction = selectModel.predict(img_array)
+    modelPrediction = selectModel.predict(img_array)
     
-    if upload == './1.JPEG':
-        predictedId = [9]
-    elif upload == '2.JPEG':
-        predictedId = [9]
-    else:
-        predictedId = [0]
+    #if upload == './1.JPEG':
+    #    predictedId = [9]
+    #elif upload == '2.JPEG':
+    #    predictedId = [9]
+    #else:
+    #    predictedId = [0]
     
-    
-    #predictedId = np.argmax(modelPrediction, axis=-1)
+    predictedId = np.argmax(modelPrediction, axis=-1)
     predictedLabel = dataClasses[predictedId]
     
     st.write('##### :wrench: Prediction: ' + predictedLabel[0].title() + ' (Recyclable: ' + 'No' + ')') # , 
