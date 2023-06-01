@@ -15,46 +15,15 @@ st.sidebar.write("## Upload :gear:")
 # Global Parameters
 imageShape = 224
 
+recycleSet = pd.read_csv('./imgModel.csv')
+recycleSet = recycleSet[recycleSet['Include'] == 'Yes']
 
-"""
-# Sample Code provided by Streamlit
+# Data Items
+dataClasses = np.array(recycleSet['Item'])
+recycleClasses = np.array(recycleSet['Recycle'])
 
-# Download the fixed image
-
-def convert_image(img):
-    buf = BytesIO()
-    img.save(buf, format="PNG")
-    byte_im = buf.getvalue()
-    return byte_im
-
-
-def fix_image(upload):
-    image = Image.open(upload)
-    col1.write("Original Image :camera:")
-    col1.image(image)
-
-    fixed = remove(image)
-    col2.write("Fixed Image :wrench:")
-    col2.image(fixed)
-    st.sidebar.markdown("\n")
-    st.sidebar.download_button("Download fixed image", convert_image(fixed), "fixed.png", "image/png")
-
-"""
-
-def getModel():
-    
-    # Image Source
-    recycleSet = pd.read_csv('./imgModel.csv')
-    recycleSet = recycleSet[recycleSet['Include'] == 'Yes']
-
-    # Data Items
-    dataClasses = np.array(recycleSet['Item'])
-    recycleClasses = np.array(recycleSet['Recycle'])
-    
-    # Model Parameters
-    selectModel = tf.keras.models.load_model('./recycleModel.h5')
-
-    return selectModel
+# Model Parameters
+selectModel = tf.keras.models.load_model('./recycleModel.h5')
 
 def analyseItem(upload):
     image = Image.open(upload)
@@ -64,9 +33,7 @@ def analyseItem(upload):
     img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
     img_array = tf.keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
-    
-    selectModel = getModel()
-    
+
     modelPrediction = selectModel.predict(img_array)
     predictedId = np.argmax(modelPrediction, axis=-1)
     predictedLabel = dataClasses[predictedId]
@@ -80,4 +47,4 @@ my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpe
 if my_upload is not None:
     analyseItem(upload=my_upload)
 else:
-    analyseItem("./1.jpeg")
+    analyseItem("./1.JPEG")
