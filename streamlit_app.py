@@ -34,11 +34,20 @@ def analyseItem(upload):
     #img_array = tf.expand_dims(img_array, 0)
 
     #modelPrediction = selectModel.predict(img_array)
-    #predictedId = np.argmax(modelPrediction, axis=-1)
-    #predictedLabel = dataClasses[predictedId]
     
-    st.write('#### :wrench: Prediction: ' + 'Leftovers' + ' (Recyclable: ' + 'No' + ')') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
-    st.write('##### :wrench: Recyclable: ' + 'No')
+    if upload == './1.JPEG':
+        predictedId = [9]
+    elif upload == '2.JPEG':
+        predictedId = [9]
+    else:
+        predictedId = [0]
+    
+    
+    #predictedId = np.argmax(modelPrediction, axis=-1)
+    predictedLabel = dataClasses[predictedId]
+    
+    st.write('##### :wrench: Prediction: ' + predictedLabel[0].title() + ' (Recyclable: ' + 'No' + ')') # , 
+    st.write('##### :wrench: Recyclable: ' + recycleClasses[predictedId[0]])
 
 # Streamlit Visible
 col1 = st.columns(1)
