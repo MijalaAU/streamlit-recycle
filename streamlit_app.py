@@ -37,8 +37,8 @@ def analyseItem(upload):
     #predictedId = np.argmax(modelPrediction, axis=-1)
     #predictedLabel = dataClasses[predictedId]
     
-    st.write("#### :wrench: Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ')') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
-    st.write("##### :wrench: Recyclable: ' + 'No')
+    st.write('#### :wrench: Prediction: ' + 'Leftovers' + ' (Recyclable: ' + 'No' + ')') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
+    st.write('##### :wrench: Recyclable: ' + 'No')
 
 # Streamlit Visible
 col1 = st.columns(1)
