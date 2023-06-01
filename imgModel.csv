@@ -1,0 +1,35 @@
+﻿folderName,Item,Include,Recycle,Index
+bandaid,Bandaid,No,No,
+battery,Battery,Yes,No,0
+bowlsanddishes,Bowls and Dishes,Yes,No,1
+bread,Bread,Yes,No,2
+bulb,Bulb,Yes,No,3
+cans,Cans,Yes,Yes,4
+carton,Carton,Yes,Yes,5
+chopsticks,Chop Sticks,No,No,
+cigarettebutt,Cigarette Butt,No,No,
+diapers,Nappies,No,No,
+facialmask,Facial Mask,Yes,No,6
+glassbottle,Glass Bottle,Yes,Yes,7
+leaflet,Leaflet,Yes,Yes,8
+leftovers,Leftovers,Yes,No,9
+medicinebottle,Medicine Bottle,Yes,No,10
+milkbox,Milk Box,Yes,Yes,11
+nailpolishbottle,Nail Polish Bottle,No,No,
+napkin,Napkin,Yes,No,12
+newspaper,Newspaper,Yes,Yes,13
+nut,Nut,Yes,No,14
+penholder,Pen Holder,No,No,
+pesticidebottle,Pesticide Bottle,No,No,
+plasticbag,Plastic Bag,Yes,No,15
+plasticbottle,Plastic Bottle,Yes,Yes,16
+plasticene,Plasticene,No,No,
+rag,Rag,Yes,No,17
+tabletcapsule,Tablet Capsule,No,No,
+thermometer,Thermometer,No,No,
+toothbrush,Toothbrush,Yes,No,18
+toothpastetube,Toothpaste,Yes,No,19
+toothpick,Toothpick,Yes,No,20
+traditionalChinesemedicine,Chinese Medicine,No,No,
+watermelonrind,Watermelon Rind,No,No,
+XLight,X Ray,No,No,
