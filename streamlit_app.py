@@ -37,10 +37,10 @@ def analyseItem(upload):
     #predictedId = np.argmax(modelPrediction, axis=-1)
     #predictedLabel = dataClasses[predictedId]
     
-    col2.write("Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ') :wrench:') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
+    col1.write("### Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ') :wrench:') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
 
 # Streamlit Visible
-col1, col2 = st.columns(2)
+col1 = st.columns(1)
 my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 if my_upload is not None:
