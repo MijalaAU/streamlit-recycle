@@ -1,0 +1,7 @@
+altair
+pandas
+streamlit
+pillow
+tensorflow
+keras
+opencv-python
