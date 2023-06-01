@@ -3,6 +3,8 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 import tensorflow as tf
+import os
+import requests
 
 st.set_page_config(layout="wide", page_title="Recycle Analyser")
 
@@ -21,8 +23,31 @@ recycleSet = recycleSet[recycleSet['Include'] == 'Yes']
 dataClasses = np.array(recycleSet['Item'])
 recycleClasses = np.array(recycleSet['Recycle'])
 
+def download(url: str, dest_folder: str):
+    if not os.path.exists(dest_folder):
+        os.makedirs(dest_folder)  # create folder if it does not exist
+
+    filename = url.split('/')[-1].replace(" ", "_")  # be careful with file names
+    file_path = os.path.join(dest_folder, filename)
+
+    r = requests.get(url, stream=True)
+    if r.ok:
+        print("saving to", os.path.abspath(file_path))
+        with open(file_path, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024 * 8):
+                if chunk:
+                    f.write(chunk)
+                    f.flush()
+                    os.fsync(f.fileno())
+    else:  # HTTP status code 4XX/5XX
+        print("Download failed: status code {}\n{}".format(r.status_code, r.text))
+
+
+download("https://storage.googleapis.com/lambm-deakin-sit744-23t1-a2/recycleModel.h5", dest_folder="~")
+
+
 # Model Parameters
-selectModel = tf.keras.models.load_model('https://storage.googleapis.com/lambm-deakin-sit744-23t1-a2/recycleModel.h5')
+selectModel = tf.keras.models.load_model('./recycleModel.h5')
 
 def analyseItem(upload):
     image = Image.open(upload)
