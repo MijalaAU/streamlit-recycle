@@ -26,7 +26,7 @@ recycleClasses = np.array(recycleSet['Recycle'])
 
 def analyseItem(upload):
     image = Image.open(upload)
-    st.write("Original Sample :camera:")
+    st.write("#### :camera: Sample")
     st.image(image)
    
     #img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
@@ -37,7 +37,8 @@ def analyseItem(upload):
     #predictedId = np.argmax(modelPrediction, axis=-1)
     #predictedLabel = dataClasses[predictedId]
     
-    st.write("### :wrench: Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ')') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
+    st.write("#### :wrench: Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ')') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
+    st.write("##### :wrench: Recyclable: ' + 'No')
 
 # Streamlit Visible
 col1 = st.columns(1)
