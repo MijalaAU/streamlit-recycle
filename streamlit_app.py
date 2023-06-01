@@ -22,7 +22,7 @@ dataClasses = np.array(recycleSet['Item'])
 recycleClasses = np.array(recycleSet['Recycle'])
 
 # Model Parameters
-#selectModel = tf.keras.models.load_model('./recycleModel.h5')
+selectModel = tf.keras.models.load_model('https://storage.googleapis.com/lambm-deakin-sit744-23t1-a2/recycleModel.h5')
 
 def analyseItem(upload):
     image = Image.open(upload)
