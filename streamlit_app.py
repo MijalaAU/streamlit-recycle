@@ -23,22 +23,22 @@ dataClasses = np.array(recycleSet['Item'])
 recycleClasses = np.array(recycleSet['Recycle'])
 
 # Model Parameters
-selectModel = tf.keras.models.load_model('./recycleModel.h5')
+#selectModel = tf.keras.models.load_model('./recycleModel.h5')
 
 def analyseItem(upload):
     image = Image.open(upload)
     col1.write("Original Image :camera:")
     col1.image(image)
    
-    img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
-    img_array = tf.keras.preprocessing.image.img_to_array(img)
-    img_array = tf.expand_dims(img_array, 0)
+    #img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
+    #img_array = tf.keras.preprocessing.image.img_to_array(img)
+    #img_array = tf.expand_dims(img_array, 0)
 
-    modelPrediction = selectModel.predict(img_array)
-    predictedId = np.argmax(modelPrediction, axis=-1)
-    predictedLabel = dataClasses[predictedId]
+    #modelPrediction = selectModel.predict(img_array)
+    #predictedId = np.argmax(modelPrediction, axis=-1)
+    #predictedLabel = dataClasses[predictedId]
     
-    col2.write(predictedLabel[0].title() + ' (Recyclable: ' + recycleClasses[predictedId[0]] + ') :wrench:')
+    #col2.write(predictedLabel[0].title() + ' (Recyclable: ' + recycleClasses[predictedId[0]] + ') :wrench:')
 
 # Streamlit Visible
 col1, col2 = st.columns(2)
