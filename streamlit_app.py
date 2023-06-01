@@ -43,11 +43,9 @@ def download(url: str, dest_folder: str):
         print("Download failed: status code {}\n{}".format(r.status_code, r.text))
 
 
-download("https://storage.googleapis.com/lambm-deakin-sit744-23t1-a2/recycleModel.h5", dest_folder="~")
-
-
+#download("https://storage.googleapis.com/lambm-deakin-sit744-23t1-a2/recycleModel.h5", dest_folder="~")
 # Model Parameters
-selectModel = tf.keras.models.load_model('./recycleModel.h5')
+#selectModel = tf.keras.models.load_model('./recycleModel.h5')
 
 def analyseItem(upload):
     image = Image.open(upload)
