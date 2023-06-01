@@ -7,9 +7,9 @@ import tensorflow as tf
 st.set_page_config(layout="wide", page_title="Recycle Analyser")
 
 st.write("## To identify whether your item can be recycled")
-st.write("### :cat: Michael Lamb - 220545523:grin:")
-st.write('### Deakin University SIT744 - 23T1 | Assignment 2')
-st.sidebar.write("## Upload :gear:")
+st.write("### :cat: Michael Lamb - 220545523")
+st.write('### :grin: Deakin University SIT744 - 23T1 | Assignment 2')
+st.sidebar.write("## :gear: Upload")
 
 # Global Parameters
 imageShape = 224
@@ -26,8 +26,8 @@ recycleClasses = np.array(recycleSet['Recycle'])
 
 def analyseItem(upload):
     image = Image.open(upload)
-    col1.write("Original Sample :camera:")
-    col1.image(image)
+    st.write("Original Sample :camera:")
+    st.image(image)
    
     #img = tf.keras.preprocessing.image.load_img(upload, target_size=(imageShape, imageShape))
     #img_array = tf.keras.preprocessing.image.img_to_array(img)
@@ -37,7 +37,7 @@ def analyseItem(upload):
     #predictedId = np.argmax(modelPrediction, axis=-1)
     #predictedLabel = dataClasses[predictedId]
     
-    col1.write("### Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ') :wrench:') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
+    st.write("### :wrench: Prediction: " + 'Leftovers' + ' (Recyclable: ' + 'No' + ')') # predictedLabel[0].title(), recycleClasses[predictedId[0]]
 
 # Streamlit Visible
 col1 = st.columns(1)
